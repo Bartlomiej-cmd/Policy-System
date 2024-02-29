@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Lista samochodów{% endblock %}
+
+{% block content %}
+<h2>Samochody:</h2>
+<ul>
+  {% for car in cars %}
+    <li>{{ car.brand }}</li>
+    <li>Numer rejestracyjny: {{ car.number }}</li>
+    <li style="margin-bottom:20px;">Rok produkcji: {{ car.year }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
