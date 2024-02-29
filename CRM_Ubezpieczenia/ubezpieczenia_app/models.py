@@ -3,7 +3,6 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 # from django.contrib.auth.models import User
 
 
-
 # class Agent(models.Model):
 #    login = models.CharField(max_length=128)
 #    password = models.CharField(max_length=128)

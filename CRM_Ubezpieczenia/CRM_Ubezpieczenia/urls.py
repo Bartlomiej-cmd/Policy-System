@@ -30,22 +30,33 @@ from ubezpieczenia_app.views import (
     list_policies,
     list_clients,
     agent_signup,
+    CarListView,
+    AddCarView,
+    AddClientView,
+    PolicyListView,
+    ClientListView,
 )
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.database_view, name='database_view'),
-    path('add_client/', add_client, name='add_client'),
-    path('add_car/', add_car, name='add_car'),
-    path('add_policy/', add_policy, name='add_policy'),
+#   path('add_client/', add_client, name='add_client'),
+#   path('add_car/', add_car, name='add_car'),
+#   path('add_policy/', add_policy, name='add_policy'),
     path('agent_login/', agent_login, name='agent_login'),
     path('agent_dashboard/', agent_dashboard, name='agent_dashboard'),
 #   path('agent_database/', agent_database, name='agent_database'),
-    path('list_cars/', list_cars, name="list_cars"),
-    path('list_policies/', list_policies, name="list_policies"),
-    path('list_clients/', list_clients, name="list_clients"),
+#   path('list_cars/', list_cars, name="list_cars"),
+#   path('list_policies/', list_policies, name="list_policies"),
+#   path('list_clients/', list_clients, name="list_clients"),
     path('agent_signup/', agent_signup, name='agent_signup'),
+    path('list_cars/', CarListView.as_view(), name='list_cars'),
+    path('list_policies/', PolicyListView.as_view(), name='list_policies'),
+    path('list_clients/', ClientListView.as_view(), name='list_clients'),
+    path('add_car/', AddCarView.as_view(), name='add_car'),
+    path('add_client/', AddClientView.as_view(), name='add_client'),
+
 
 #   path('database_view/', database_view(), name='database_view'),
 #   path('CarView/', CarView, name='cars_list')

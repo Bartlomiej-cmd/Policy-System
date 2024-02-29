@@ -4,6 +4,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import Car, Client, Policy, Agent
 from .forms import ClientForm, CarForm, PolicyForm, AgentLoginForm, AgentSignUpForm
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 @login_required
 def database_view(request):
@@ -108,4 +111,54 @@ def add_policy(request):
     return render(request, 'add_policy.html', {'form': form})
 
 
+class CarListView(ListView):
+    model = Car
+    template_name = 'list_cars.html'
+    context_object_name = 'cars'
+
+
+class PolicyListView(ListView):
+    model = Policy
+    template_name = 'list_policies.html'
+    context_object_name = 'policies'
+
+
+class ClientListView(ListView):
+    model = Client
+    template_name = 'list_clients.html'
+    context_object_name = 'clients'
+
+
+class AddCarView(CreateView):
+    model = Car
+    template_name = 'add_car.html'
+    form_class = CarForm
+    success_url = reverse_lazy('database_view')
+
+
+class AddClientView(CreateView):
+    model = Client
+    template_name = 'add_client.html'
+    form_class = ClientForm
+    success_url = reverse_lazy('client_list')
+
+
+class CarListView(LoginRequiredMixin, CarListView):
+    pass
+
+
+class PolicyListView(LoginRequiredMixin, PolicyListView):
+    pass
+
+
+class ClientListView(LoginRequiredMixin, ClientListView):
+    pass
+
+
+class AddCarView(LoginRequiredMixin, AddCarView):
+    pass
+
+
+class AddClientView(LoginRequiredMixin, AddClientView):
+    pass
 
