@@ -127,11 +127,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Domyślne backendy uwierzytelniania
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',  # Domyślny backend Django
-    # Dodaj inne backendy, jeśli są potrzebne
-]
-
-# URL, na który użytkownik będzie przekierowywany w przypadku próby dostępu do chronionych zasobów bez uwierzytelnienia
-LOGIN_URL = '/agent_login/'
+# # Domyślne backendy uwierzytelniania
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',  # Domyślny backend Django
+#     # Dodaj inne backendy, jeśli są potrzebne
+# ]
+#
+# # URL, na który użytkownik będzie przekierowywany w przypadku próby dostępu do chronionych zasobów bez uwierzytelnienia
+LOGIN_URL = 'login'
