@@ -50,4 +50,3 @@ class LoginForm(forms.Form):
             raise ValidationError("Incorrect username or password")
         else:
             self.user = user
-
