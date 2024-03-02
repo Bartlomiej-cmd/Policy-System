@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
+{% block title %}Lista Agentów:{% endblock %}
+
 {% block content %}
+<h2>Lista Agentów:</h2>
     <ul>
         {% for user in users %}
         <li>{{ user.username }} {{ user.last_name }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
+
+
+
+
+
+

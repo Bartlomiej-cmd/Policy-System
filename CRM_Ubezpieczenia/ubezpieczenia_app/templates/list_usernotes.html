@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Lista notatek{% endblock %}
+
+{% block content %}
+<h2>Notatki:</h2>
+<ul>
+  {% for note in usernotes %}
+    <li>{{ note.user }} {{ note.note }} {{ note.date }}</li>
+
+  {% endfor %}
+</ul>
+{% endblock %}

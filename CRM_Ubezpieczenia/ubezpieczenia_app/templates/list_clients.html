@@ -3,7 +3,7 @@
 {% block title %}Lista klientów:{% endblock %}
 
 {% block content %}
-<h2>Klienci:</h2>
+<h2>Lista Klientów:</h2>
 <ul>
   {% for client in clients %}
     <li>{{ client.name }} {{ client.surname }} {{ client.pesel }} {{ client.phone }}</li>

@@ -135,3 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #
 # # URL, na który użytkownik będzie przekierowywany w przypadku próby dostępu do chronionych zasobów bez uwierzytelnienia
 LOGIN_URL = 'login'
+
+SMS_BACKEND = 'sms.backends.console.SmsBackend'

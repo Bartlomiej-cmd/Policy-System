@@ -14,22 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls')
 """
+from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.urls import path
 from ubezpieczenia_app import views
 from ubezpieczenia_app.views import (
-    # add_client,
-    # add_car,
-    # add_policy,
-#   CarView,
-#     agent_login,
-#     agent_dashboard,
-    database_view,
-#   agent_database,
-#     list_cars,
-#     list_policies,
-#     list_clients,
-#    agent_signup,
     CarListView,
     AddCarView,
     AddClientView,
@@ -38,32 +27,33 @@ from ubezpieczenia_app.views import (
     AddPolicyView,
     UserListView,
     LoginView,
-    AddUserView,
+    LogoutView,
+    UserNotesListView,
+    AddUserNotesView,
+    RegisterView,
+    AddInsuranceAgencyView,
+    AgencyListView,
 )
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.database_view, name='database_view'),
-#   path('add_client/', add_client, name='add_client'),
-#   path('add_car/', add_car, name='add_car'),
-#   path('add_policy/', add_policy, name='add_policy'),
-#     path('agent_login/', agent_login, name='agent_login'),
-#     path('agent_dashboard/', agent_dashboard, name='agent_dashboard'),
-#   path('agent_database/', agent_database, name='agent_database'),
-#   path('list_cars/', list_cars, name="list_cars"),
-#   path('list_policies/', list_policies, name="list_policies"),
-#   path('list_clients/', list_clients, name="list_clients"),
-#   path('agent_signup/', agent_signup, name='agent_signup'),
     path('list_cars/', CarListView.as_view(), name='list_cars'),
     path('list_policies/', PolicyListView.as_view(), name='list_policies'),
     path('list_clients/', ClientListView.as_view(), name='list_clients'),
+    path('list_usernotes/', UserNotesListView.as_view(), name='list_usernotes'),
     path('add_car/', AddCarView.as_view(), name='add_car'),
     path('add_client/', AddClientView.as_view(), name='add_client'),
     path('add_policy/', AddPolicyView.as_view(), name='add_policy'),
+    path('add_usernotes/', AddUserNotesView.as_view(), name='add_usernotes'),
     path('list/users/', UserListView.as_view(), name="user-list"),
-    path('add_user/', AddUserView.as_view(), name="add_user"),
+    path('add_agency/', AddInsuranceAgencyView.as_view(), name="add_agency"),
+    path('list_agency/', AgencyListView.as_view(), name="list_agency"),
+    path('create_user/', RegisterView.as_view(), name="register"),
     path('login/', LoginView.as_view(), name="login"),
-#   path('database_view/', database_view(), name='database_view'),
-#   path('CarView/', CarView, name='cars_list')
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('user_list/', UserListView.as_view(), name="user_list"),
 ]
+
+

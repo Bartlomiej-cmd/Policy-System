@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Dodaj Towarzystwo Ubezpieczeniowe{% endblock %}
+
+{% block content %}
+<h2>Dodaj Towarzystwo</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Dodaj</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Lista Towarzystw:{% endblock %}
+
+{% block content %}
+<h2>Lista Agencji Ubezpieczeniowych:</h2>
+<ul>
+  {% for agency in agencies %}
+    <li>{{ agency.name }} {{ agency.address }} {{ agency.contact_number }} {{ agency.website}}</li>
+
+  {% endfor %}
+</ul>
+{% endblock %}
